@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>İstanbul Kaşifi | İletişim</title>
+  <meta name="description"
+    content="İstanbul'un tarihi mekanlarını, saraylarını ve kültürel mirasını keşfedin. İstanbul Kaşifi ile şehri adım adım gezin.">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md sticky-top my-nav">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <div class="d-flex align-items-center justify-content-center">
+          <i class="bi bi-compass text-warning m-1"></i>
+        </div>
+        <div class="lh-sm nvb-logo">
+          <span class="fw-bold fs-5 d-block">İstanbul Kaşifi</span>
+        </div>
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <button class="theme-toggle" id="themeToggle" aria-label="Tema değiştir">
+          <i class="bi bi-sun-fill" id="themeIcon"></i>
+        </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+          aria-controls="mainNav" aria-expanded="false" aria-label="Menüyü aç">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-1 py-1">
+          <li class="nav-item">
+            <a class="nav-link fw-semibold px-3 nvb-txt " href="index.html">Ana Sayfa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold px-3 nvb-txt" href="rehber.html">Rehberler</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold px-3 nvb-txt active" href="#">İletişim</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <section class="mt-5 mb-4 contact-section">
+    <div class="container">
+      <div class="row g-3 align-items-start">
+        <div class="col-lg-5">
+          <h3 class="contact-heading1">Bizi Ziyaret Edin</h3>
+          <p class="mb-4 contact-heading2">Ofisimize bekliyoruz ya da aşağıdaki kanallardan bize ulaşabilirsiniz.</p>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <strong>Adres</strong>
+              <p>Karadeniz Teknik Üniversitesi<br>Fen Fakültesi Binası<br>Trabzon, Türkiye</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <strong>E-posta</strong>
+              <p>iletisim@firtina.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div>
+              <strong>Telefon</strong>
+              <p>+90 531 272 80 37</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="bi bi-clock-fill"></i></div>
+            <div>
+              <strong>Çalışma Saatleri</strong>
+              <p>Pazartesi – Cuma: 08:00 – 17:00</p>
+            </div>
+          </div>
+
+          <div class="d-flex gap-3 mt-4">
+            <a href="https://www.instagram.com/ktufen" target="_blank" class="social-btn"><i
+                class="bi bi-instagram"></i></a>
+            <a href="#" class="social-btn"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="social-btn"><i class="bi bi-facebook"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="form-card">
+            <h3 class="contact-heading3">Mesaj Gönderin</h3>
+            <p class="contact-heading4">Formu doldurun, sizi haberdar edelim.</p>
+            <form id="contactForm">
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="label">Ad <span>*</span></label>
+                    <input type="text" id="firstName" class="input1" placeholder="Adınız">
+                    <span class="error1" id="firstNameErr"></span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="label">Soyad <span>*</span></label>
+                    <input type="text" id="lastName" class="input1" placeholder="Soyadınız">
+                    <span class="error1" id="lastNameErr"></span>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <label class="label">E-posta <span>*</span></label>
+                    <input type="email" id="email" class="input1" placeholder="ornek@example.com">
+                    <span class="error1" id="emailErr"></span>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <label class="label">Telefon</label>
+                    <input type="tel" id="phone" class="input1" placeholder="+90 5XX XXX XX XX">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <label class="label">Konu <span>*</span></label>
+                    <select id="subject" class="input1">
+                      <option value="">Konu seçin...</option>
+                      <option value="oneri">Mekan Önerisi</option>
+                      <option value="hata">Hata Bildirimi</option>
+                      <option value="isbirligi">İşbirliği</option>
+                      <option value="diger">Diğer</option>
+                    </select>
+                    <span class="error1" id="subjectErr"></span>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <label class="label">Mesajınız <span>*</span></label>
+                    <textarea id="message" class="input1 textarea" placeholder="Mesajınızı buraya yazın..."
+                      rows="5"></textarea>
+                    <span class="error1" id="messageErr"></span>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <label class="checkbox-wrap">
+                      <input type="checkbox" id="privacyCheck">
+                      <span class="checkbox-custom"></span>
+                      <span><a href="https://policies.google.com/privacy?hl=en-US" target="_blank">Gizlilik
+                          Politikası</a> gereğince kişisel
+                        verilerimin işlenmesine onay veriyorum.</span>
+
+                    </label>
+                    <span class="error1" id="privacyErr"></span>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" id="submitBtn" class="btn btn-warning w-100 ">
+                    <span id="btnText">Mesajı Gönder <i class="bi bi-send ms-2"></i></span>
+                    <span id="btnLoader" class="spinner" style="display:none"></span>
+                    <span id="btnSuccess" style="display:none"><i
+                        class="bi bi-check-circle-fill me-2"></i>Gönderildi!</span>
+
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="map mt-5 mb-4 shadow">
+    <iframe src="https://www.google.com/maps?q=Ktu+fen+fakultesi&output=embed" width="100%" height="350"
+      style="border:0;">
+    </iframe>
+  </div>
+
+  <footer class="pt-5 pb-3 mt-auto footer-style">
+    <div class="container">
+      <div class="row g-4 mb-4">
+        <div class="col-md-4">
+          <h5 class="mb-3">
+            <i class="bi bi-compass me-2"></i>İstanbul Kaşifi
+          </h5>
+          <p class="text-secondary small fw-semibold">
+            İstanbul'un gizli köşelerini, tarihi mekanlarını ve kültürel mirasını keşfetmek için rehberiniz.
+          </p>
+          <div class="d-flex gap-3 mt-3">
+            <a href="https://api.whatsapp.com/send/?phone=905462646334" class="footer-social-btn" target="_blank">
+              <i class="bi bi-whatsapp fs-3"></i>
+            </a>
+            <a href="https://www.instagram.com/ktusdc" class="footer-social-btn" target="_blank">
+              <i class="bi bi-instagram fs-3"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-2 offset-md-1">
+          <h6 class="text-uppercase text-warning fw-bold mb-3 small">Sayfalar</h6>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="index.html" class="text-secondary text-decoration-none">Ana Sayfa</a></li>
+            <li class="mb-2"><a href="rehber.html" class="text-secondary text-decoration-none">Rehberler</a>
+            </li>
+            <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">İletişim</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4 offset-md-1">
+          <h6 class="text-uppercase text-warning fw-bold small">İletişim</h6>
+          <ul class="list-unstyled">
+            <li class="d-flex my-3 align-items-end gap-2">
+              <i class="bi bi-geo-alt-fill text-warning mt-1"></i>
+              <span class="text-secondary">Trabzon, Türkiye</span>
+            </li>
+            <li class="d-flex mb-3 align-items-center gap-2">
+              <i class="bi bi-envelope-fill text-warning mt-1"></i>
+              <a href="mailto:iletisim@firtina.com" class="text-secondary text-decoration-none">iletisim@firtina.com</a>
+            </li>
+            <li class="d-flex align-items-center gap-2">
+              <i class="bi bi-telephone-fill text-warning mt-1"></i>
+              <a href="tel:+905462646334" class="text-secondary text-decoration-none">+90 546 264 63 34</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center">
+        <p class="text-secondary small">
+          © 2026 <span class="text-warning fw-semibold">İstanbul Kaşifi</span> — Tüm hakları saklıdır.
+        </p>
+      </div>
+      <div class="d-flex align-items-center">
+        <hr class="flex-grow-1 border-warning border-3">
+        <span class="px-3 text-warning fw-bold">Powered by FIRTINA
+          <img src="images/firtina.png" style="width:30px;height:30px;border-radius:50%;">
+        </span>
+        <hr class="flex-grow-1 border-warning border-3">
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="assets/js/tema.js"></script>
+  <script src="assets/js/iletisim.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
