@@ -109,7 +109,7 @@ function renderCards() {
 
     grid.innerHTML = places.map(place => `
     <div class="col-12 col-md-4 card-item">
-      <div class="card card-hover" data-id="${place.id}" >
+      <div class="card card-hover" data-id="${place.id}" data-category = "${place.category}">
         <img src="images/${place.images[0]}" class="card-img2" loading="lazy" alt="${place.name}">
         <div class="card-body">
           <h5>${place.name}</h5>
