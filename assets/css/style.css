@@ -147,6 +147,64 @@ body.light-mode .filter-btn {
   transform: scale(1.08);
 }
 
+/* Dil butonu - theme-toggle ile aynı base stili paylaşır */
+.lang-dropdown .theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  min-width: unset;
+}
+
+.dropdown-toggle-no-caret::after {
+  display: none !important;
+  /* Bootstrap ok işaretini kaldır */
+}
+
+.lang-code {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1;
+}
+
+/* Dropdown menü */
+.lang-menu {
+  min-width: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.lang-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 7px;
+  padding: 7px 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+
+#currentFlag.fis {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 4px;
+}
+
+.lang-item.active {
+  background: rgba(var(--bs-warning-rgb), 0.12);
+  color: var(--bs-warning);
+}
+
+.lang-flag {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
 body {
   color: var(--text);
   background-color: var(--bg-main);
@@ -158,6 +216,12 @@ body {
   border-bottom: 1px solid var(--text-muted);
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
+
+[dir="rtl"] .navbar-brand {
+  margin-left: 1rem;
+  margin-right: 0;
+}
+
 
 .nvb-txt {
   color: var(--text-muted);

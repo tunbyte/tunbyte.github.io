@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" dir="ltr">
 
-<head>
+<head id="bootstrap-css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Playfair+Display:wght@600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-  <title>İstanbul Kaşifi | Ana Sayfa</title>
+  <title>İstanbul Kaşifi</title>
   <meta name="description"
     content="İstanbul'un tarihi mekanlarını, saraylarını ve kültürel mirasını keşfedin. İstanbul Kaşifi ile şehri adım adım gezin.">
 
@@ -20,35 +21,82 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-md navbar- sticky-top my-nav">
+  <nav class="navbar navbar-expand-md sticky-top my-nav">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="#">
         <div class="d-flex align-items-center justify-content-center">
           <i class="bi bi-compass text-warning m-1"></i>
         </div>
         <div class="lh-sm nvb-logo">
-          <span class="fw-bold fs-5 d-block">İstanbul Kaşifi</span>
+          <span class="fw-bold fs-5 d-block" data-i18n="brand">İstanbul Kaşifi</span>
         </div>
       </a>
-      <div class="d-flex align-items-center gap-2">
+
+      <div class="d-flex align-items-center gap-2 ms-auto">
+
+        <!-- Dil Seçimi Dropdown -->
+        <div class="dropdown lang-dropdown">
+          <button class="theme-toggle dropdown-toggle-no-caret" id="langDropdown" data-bs-toggle="dropdown"
+            aria-expanded="false" aria-label="Dil seç">
+            <span class="fi fi-tr" id="currentFlag"></span>
+          </button>
+
+          <ul class="dropdown-menu dropdown-menu-end lang-menu" aria-labelledby="langDropdown">
+            <li>
+              <a class="dropdown-item lang-item active" href="#" data-lang="tr" data-code="TR" data-flag-class="fi-tr">
+                <span class="fi fi-tr lang-flag"></span>
+                <span class="lang-name">Türkçe</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item lang-item" href="#" data-lang="az" data-code="AZ" data-flag-class="fi-az">
+                <span class="fi fi-az lang-flag"></span>
+                <span class="lang-name">Azərbaycanca</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item lang-item" href="#" data-lang="en" data-code="EN" data-flag-class="fi-gb">
+                <span class="fi fi-gb lang-flag"></span>
+                <span class="lang-name">English</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item lang-item" href="#" data-lang="ar" data-code="AR" data-flag-class="fi-sa">
+                <span class="fi fi-sa lang-flag"></span>
+                <span class="lang-name">العربية</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item lang-item" href="#" data-lang="fa" data-code="FA" data-flag-class="fi-ir">
+                <span class="fi fi-ir lang-flag"></span>
+                <span class="lang-name">فارسی</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tema Toggle -->
         <button class="theme-toggle" id="themeToggle" aria-label="Tema değiştir">
           <i class="bi bi-sun-fill" id="themeIcon"></i>
         </button>
+
+        <!-- Hamburger -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
           aria-controls="mainNav" aria-expanded="false" aria-label="Menüyü aç">
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
+
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav ms-auto align-items-center gap-1 py-1">
           <li class="nav-item">
-            <a class="nav-link fw-semibold px-3 nvb-txt active" href="#">Ana Sayfa</a>
+            <a class="nav-link fw-semibold px-3 nvb-txt active" href="#" data-i18n="nav_home">Ana Sayfa</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fw-semibold px-3 nvb-txt" href="rehber.html">Rehberler</a>
+            <a class="nav-link fw-semibold px-3 nvb-txt" href="rehber.html" data-i18n="nav_guides">Rehberler</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fw-semibold px-3 nvb-txt" href="iletisim.html">İletişim</a>
+            <a class="nav-link fw-semibold px-3 nvb-txt" href="iletisim.html" data-i18n="nav_contact">İletişim</a>
           </li>
         </ul>
       </div>
@@ -70,18 +118,20 @@
   <div class="container mt-4">
     <div class="row">
       <div class="col-md-12 text-center mb-3">
-        <h6 class="hero-titlesub">ŞEHİRLERİN SULTANI</h6>
-        <h1 class="hero-title">İSTANBUL</h1>
-        <h2 class="hero-subtitle1">İKİ KITANIN KALBİ</h2>
-        <p class="hero-text1">Yüzyılların izini taşıyan, kültürlerin kesiştiği eşsiz bir miras.</p>
+        <h6 class="hero-titlesub" data-i18n="hero_sub">ŞEHİRLERİN SULTANI</h6>
+        <h1 class="hero-title" data-i18n="hero_title">İSTANBUL</h1>
+        <h2 class="hero-subtitle1" data-i18n="hero_subtitle">İKİ KITANIN KALBİ</h2>
+        <p class="hero-text1" data-i18n="hero_text">Yüzyılların izini taşıyan, kültürlerin kesiştiği eşsiz bir miras.
+        </p>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6 text-center mb-5 ">
-        <a href="rehber.html" class="btn btn-kesfet">Keşfetmeye Başla<i class="bi bi-arrow-right ms-2"></i></a>
+        <a href="rehber.html" class="btn btn-kesfet" data-i18n="btn_explore">Keşfetmeye Başla<i
+            class="bi bi-arrow-right ms-2"></i></a>
       </div>
       <div class="col-md-6 text-center mb-5 ">
-        <a href="iletisim.html" class="btn btn-iletisim">Bizimle İletişime Geç</a>
+        <a href="iletisim.html" class="btn btn-iletisim" data-i18n="btn_contact">Bizimle İletişime Geç</a>
       </div>
     </div>
   </div>
@@ -91,19 +141,19 @@
       <div class="row g-0">
         <div class="col-6 col-md-3 text-center line1">
           <h5>15M</h5>
-          <h6>Nüfus</h6>
+          <h6 data-i18n="stat_population">Nüfus</h6>
         </div>
         <div class="col-6 col-md-3 text-center line1">
           <h5>8500+</h5>
-          <h6>Yıllık Tarih</h6>
+          <h6 data-i18n="stat_history">Yıllık Tarih</h6>
         </div>
         <div class="col-6 col-md-3 text-center line1">
           <h5>3</h5>
-          <h6>İmparatorluk Başkenti</h6>
+          <h6 data-i18n="stat_capital">İmparatorluk Başkenti</h6>
         </div>
         <div class="col-6 col-md-3 text-center line1">
           <h5>1000+</h5>
-          <h6>Cami ve Tarihi yapı</h6>
+          <h6 data-i18n="stat_monuments">Cami ve Tarihi yapı</h6>
         </div>
       </div>
     </div>
@@ -112,23 +162,23 @@
   <section class="info info-1">
     <div class="container container-1">
 
-      <h2 class="section-title">İstanbul Hakkında</h2>
+      <h2 class="section-title" data-i18n="section_about_title">İstanbul Hakkında</h2>
 
-      <p class="fade-up">
+      <p class="fade-up" data-i18n="section_about_p1">
         Türkiye’nin en büyük ve en önemli şehirlerinden biridir.
         Hem Asya hem de Avrupa kıtası üzerinde yer alan nadir şehirlerden biri olması,
         onu dünya üzerinde eşsiz bir konuma taşır. Şehir, iki kıtayı birbirinden ayıran Boğaziçi ile
         şekillenir ve bu özelliği sayesinde tarih boyunca ticaretin, kültürün ve medeniyetlerin merkezi olmuştur.
       </p>
 
-      <p class="fade-up">
+      <p class="fade-up" data-i18n="section_about_p2">
         İstanbul’un tarihi yaklaşık 8.500 yıl öncesine kadar uzanır. Bizans İmparatorluğu ve
         Osmanlı İmparatorluğu gibi büyük medeniyetlere başkentlik yapmış olan şehir,
         bu geçmişin izlerini günümüzde hâlâ taşımaktadır. Ayasofya, Sultanahmet Camii ve Topkapı Sarayı
         gibi yapılar, İstanbul’un tarihsel zenginliğini yansıtan önemli eserlerdir.
       </p>
 
-      <p class="fade-up">
+      <p class="fade-up" data-i18n="section_about_p3">
         Günümüzde İstanbul, yaklaşık 15 milyonu aşan nüfusuyla Türkiye’nin ekonomik,
         kültürel ve turistik merkezidir. Şehir; modern yapılar, alışveriş merkezleri ve gelişmiş
         ulaşım ağlarıyla dikkat çekerken, aynı zamanda geleneksel mahalle yaşamını ve kültürel
@@ -136,7 +186,7 @@
         bulunduğu İstanbul, bu yönüyle çok kültürlü bir yapıya sahiptir.
       </p>
 
-      <p class="fade-up">
+      <p class="fade-up" data-i18n="section_about_p4">
         İstanbul’un bir diğer önemli özelliği ise doğal güzellikleridir. Boğaziçi manzarası,
         sahil şeritleri, parkları ve tarihi yarımadası ile şehir, hem yaşayanlar hem de ziyaretçiler
         için benzersiz bir deneyim sunar.
@@ -148,7 +198,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 col-md-12 text-center pt-5 pb-5 line2">
-        <h1 class="fade-up">İstanbulun En Çok Ziyaret Edilen Yerler</h1>
+        <h1 class="fade-up" data-i18n="section_most_visited">İstanbulun En Çok Ziyaret Edilen Yerler</h1>
       </div>
     </div>
   </div>
@@ -170,7 +220,7 @@
         <div class="carousel-overlay"></div>
         <div class="carousel-caption">
           <h1>Ayasofya</h1>
-          <a href="rehber.html" class="btn btn-lg mt-3  custom-btn">
+          <a href="rehber.html" class="btn btn-lg mt-3  custom-btn" data-i18n="btn_see_info">
             Detayları Gör<i class="bi bi-arrow-right ms-2"></i>
           </a>
         </div>
@@ -181,7 +231,7 @@
         <div class="carousel-overlay"></div>
         <div class="carousel-caption">
           <h1>İstanbul 360</h1>
-          <a href="rehber.html" class="btn btn-lg mt-3 custom-btn">
+          <a href="rehber.html" class="btn btn-lg mt-3 custom-btn" data-i18n="btn_see_info">
             Detayları Gör<i class="bi bi-arrow-right ms-2"></i>
           </a>
         </div>
@@ -192,7 +242,7 @@
         <div class="carousel-overlay"></div>
         <div class="carousel-caption">
           <h1>Kapalıçarşı</h1>
-          <a href="rehber.html" class="btn btn-lg mt-3 custom-btn">
+          <a href="rehber.html" class="btn btn-lg mt-3 custom-btn" data-i18n="btn_see_info">
             Detayları Gör<i class="bi bi-arrow-right ms-2"></i>
           </a>
         </div>
@@ -203,7 +253,7 @@
         <div class="carousel-overlay"></div>
         <div class="carousel-caption">
           <h1>Boğaziçi</h1>
-          <a href="rehber.html" class="btn btn-lg mt-3 custom-btn">
+          <a href="rehber.html" class="btn btn-lg mt-3 custom-btn" data-i18n="btn_see_info">
             Detayları Gör<i class="bi bi-arrow-right ms-2"></i>
           </a>
         </div>
@@ -214,7 +264,7 @@
         <div class="carousel-overlay"></div>
         <div class="carousel-caption">
           <h1>Topkapı Sarayı</h1>
-          <a href="rehber.html" class="btn btn-lg mt-3 custom-btn">
+          <a href="rehber.html" class="btn btn-lg mt-3 custom-btn" data-i18n="btn_see_info">
             Detayları Gör<i class="bi bi-arrow-right ms-2"></i>
           </a>
         </div>
@@ -237,10 +287,10 @@
     <div class="container">
       <div class="row g-4 mb-4">
         <div class="col-md-4">
-          <h5 class="mb-3">
+          <h5 class="mb-3" data-i18n="brand">
             <i class="bi bi-compass me-2"></i>İstanbul Kaşifi
           </h5>
-          <p class="text-secondary small fw-semibold">
+          <p class="text-secondary small fw-semibold" data-i18n="footer_desc">
             İstanbul'un gizli köşelerini, tarihi mekanlarını ve kültürel mirasını keşfetmek için rehberiniz.
           </p>
           <div class="d-flex gap-3 mt-3">
@@ -253,17 +303,20 @@
           </div>
         </div>
         <div class="col-md-2 offset-md-1">
-          <h6 class="text-uppercase text-warning fw-bold mb-3 small">Sayfalar</h6>
+          <h6 class="text-uppercase text-warning fw-bold mb-3 small" data-i18n="footer_pages">Sayfalar</h6>
           <ul class="list-unstyled">
-            <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Ana Sayfa</a></li>
-            <li class="mb-2"><a href="rehber.html" class="text-secondary text-decoration-none">Rehberler</a>
+            <li class="mb-2"><a href="#" class="text-secondary text-decoration-none" data-i18n="nav_home">Ana Sayfa</a>
             </li>
-            <li class="mb-2"><a href="iletisim.html" class="text-secondary text-decoration-none">İletişim</a>
+            <li class="mb-2"><a href="rehber.html" class="text-secondary text-decoration-none"
+                data-i18n="nav_guides">Rehberler</a>
+            </li>
+            <li class="mb-2"><a href="iletisim.html" class="text-secondary text-decoration-none"
+                data-i18n="nav_contact">İletişim</a>
             </li>
           </ul>
         </div>
         <div class="col-md-4 offset-md-1">
-          <h6 class="text-uppercase text-warning fw-bold small">İletişim</h6>
+          <h6 class="text-uppercase text-warning fw-bold small" data-i18n="nav_contact">İletişim</h6>
           <ul class="list-unstyled">
             <li class="d-flex my-3 align-items-end gap-2">
               <i class="bi bi-geo-alt-fill text-warning mt-1"></i>
@@ -282,7 +335,8 @@
       </div>
       <div class="text-center">
         <p class="text-secondary small">
-          © 2026 <span class="text-warning fw-semibold">İstanbul Kaşifi</span> — Tüm hakları saklıdır.
+          © 2026 <span class="text-warning fw-semibold" data-i18n="brand">İstanbul Kaşifi</span> — <span
+            data-i18n="footer_rights">Tüm hakları saklıdır.</span>
         </p>
       </div>
       <div class="d-flex align-items-center">
@@ -303,6 +357,7 @@
   <script src="assets/js/tema.js"></script>
   <script src="assets/js/karsilama.js"></script>
   <script src="assets/js/jquery.js"></script>
+  <script src="locales/i18n.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 

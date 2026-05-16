@@ -1,19 +1,22 @@
-
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', function (e) {
+contactForm.addEventListener('submit', async function (e) {
     e.preventDefault();
+
+    // Aktif locale'i çek
+    const lang = localStorage.getItem('lang') || 'tr';
+    const res = await fetch(`locales/${lang}.json`);
+    const locale = await res.json();
 
     let valid = true;
 
     const fields = [
-        { id: 'firstName', errId: 'firstNameErr', msg: 'Ad zorunludur.' },
-        { id: 'lastName', errId: 'lastNameErr', msg: 'Soyad zorunludur.' },
-        { id: 'email', errId: 'emailErr', msg: 'Geçerli bir e-posta girin.' },
-        { id: 'subject', errId: 'subjectErr', msg: 'Konu seçiniz.' },
-        { id: 'message', errId: 'messageErr', msg: 'Mesaj zorunludur.' },
+        { id: 'firstName', errId: 'firstNameErr', key: 'err_firstname' },
+        { id: 'lastName', errId: 'lastNameErr', key: 'err_lastname' },
+        { id: 'email', errId: 'emailErr', key: 'err_email' },
+        { id: 'subject', errId: 'subjectErr', key: 'err_subject' },
+        { id: 'message', errId: 'messageErr', key: 'err_message' },
     ];
-
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -25,21 +28,19 @@ contactForm.addEventListener('submit', function (e) {
         el.classList.remove('input1-error1');
 
         if (!el.value.trim()) {
-            errEl.textContent = f.msg;
+            errEl.textContent = locale[f.key] || f.key;
             el.classList.add('input1-error1');
             valid = false;
         } else if (f.id === 'email' && !emailRegex.test(el.value)) {
-            errEl.textContent = 'Geçerli bir e-posta girin.';
+            errEl.textContent = locale['err_email'] || 'err_email';
             el.classList.add('input1-error1');
             valid = false;
         }
     });
 
     document.getElementById('privacyErr').textContent = '';
-
-
     if (!document.getElementById('privacyCheck').checked) {
-        document.getElementById('privacyErr').textContent = 'Gizlilik politikasını onaylamanız gerekiyor.';
+        document.getElementById('privacyErr').textContent = locale['err_privacy'] || 'err_privacy';
         valid = false;
     }
 
@@ -55,30 +56,23 @@ contactForm.addEventListener('submit', function (e) {
     btn.disabled = true;
 
     setTimeout(() => {
-
         contactForm.reset();
-
         btnLoader.style.display = 'none';
-
         btn.disabled = false;
         btn.style.background = '#22C55E';
         btn.style.borderColor = '#22C55E';
 
-
         btnText.style.display = 'none';
         btnSuccess.style.display = 'inline';
 
-        setTimeout(() => {
+        // btn text'i de locale'den al
+        btnSuccess.textContent = locale['btn_sent'] || '✓';
 
+        setTimeout(() => {
             btnSuccess.style.display = 'none';
             btnText.style.display = 'inline';
             btn.style.background = '';
             btn.style.borderColor = '';
-
         }, 2000);
-
     }, 1500);
 });
-
-
-

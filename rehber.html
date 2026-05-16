@@ -4,49 +4,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link id="bootstrap-css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Playfair+Display:wght@600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-  <title>İstanbul Kaşifi | Rehber</title>
+  <title>İstanbul Kaşifi</title>
   <meta name="description"
     content="İstanbul'un tarihi mekanlarını, saraylarını ve kültürel mirasını keşfedin. İstanbul Kaşifi ile şehri adım adım gezin.">
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar- sticky-top my-nav">
+  <nav class="navbar navbar-expand-md sticky-top my-nav">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
         <div class="d-flex align-items-center justify-content-center">
           <i class="bi bi-compass text-warning m-1"></i>
         </div>
         <div class="lh-sm nvb-logo">
-          <span class="fw-bold fs-5 d-block">İstanbul Kaşifi</span>
+          <span class="fw-bold fs-5 d-block" data-i18n="brand">İstanbul Kaşifi</span>
         </div>
       </a>
+
       <div class="d-flex align-items-center gap-2">
+
+        <!-- Dil Seçimi Dropdown -->
+        <div class="dropdown lang-dropdown">
+          <button class="theme-toggle dropdown-toggle-no-caret" id="langDropdown" data-bs-toggle="dropdown"
+            aria-expanded="false" aria-label="Dil seç">
+            <span class="fi fi-tr" id="currentFlag"></span>
+          </button>
+
+          <ul class="dropdown-menu dropdown-menu-end lang-menu" aria-labelledby="langDropdown">
+            <li>
+              <a class="dropdown-item lang-item active" href="#" data-lang="tr" data-code="TR" data-flag-class="fi-tr">
+                <span class="fi fi-tr lang-flag"></span>
+                <span class="lang-name">Türkçe</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item lang-item" href="#" data-lang="az" data-code="AZ" data-flag-class="fi-az">
+                <span class="fi fi-az lang-flag"></span>
+                <span class="lang-name">Azərbaycanca</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item lang-item" href="#" data-lang="en" data-code="EN" data-flag-class="fi-gb">
+                <span class="fi fi-gb lang-flag"></span>
+                <span class="lang-name">English</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item lang-item" href="#" data-lang="ar" data-code="AR" data-flag-class="fi-sa">
+                <span class="fi fi-sa lang-flag"></span>
+                <span class="lang-name">العربية</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item lang-item" href="#" data-lang="fa" data-code="FA" data-flag-class="fi-ir">
+                <span class="fi fi-ir lang-flag"></span>
+                <span class="lang-name">فارسی</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tema Toggle -->
         <button class="theme-toggle" id="themeToggle" aria-label="Tema değiştir">
           <i class="bi bi-sun-fill" id="themeIcon"></i>
         </button>
+
+        <!-- Hamburger -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
           aria-controls="mainNav" aria-expanded="false" aria-label="Menüyü aç">
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
+
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav ms-auto align-items-center gap-1 py-1">
           <li class="nav-item">
-            <a class="nav-link fw-semibold px-3 nvb-txt " href="index.html">Ana Sayfa</a>
+            <a class="nav-link fw-semibold px-3 nvb-txt" href="index.html" data-i18n="nav_home">Ana Sayfa</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fw-semibold px-3 nvb-txt active" href="#">Rehberler</a>
+            <a class="nav-link fw-semibold px-3 nvb-txt active" href="#" data-i18n="nav_guides">Rehberler</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fw-semibold px-3 nvb-txt" href="iletisim.html">İletişim</a>
+            <a class="nav-link fw-semibold px-3 nvb-txt" href="iletisim.html" data-i18n="nav_contact">İletişim</a>
           </li>
         </ul>
       </div>
@@ -57,10 +107,11 @@
   <div class="container mt-4">
     <div class="row">
       <div class="col-md-12 text-center mb-3">
-        <h6 class="hero-titlesub">İSTANBUL REHBERİ</h6>
-        <h1 class="hero-title">MEKANLARI</h1>
-        <h2 class="hero-subtitle2">KEŞFET</h2>
-        <p class="hero-text2">Şehrin dört bir yanındaki en özel mekanları kategorilere göre filtreleyin ve keşfedin.</p>
+        <h6 class="hero-titlesub" data-i18n="guide_sub">İSTANBUL REHBERİ</h6>
+        <h1 class="hero-title" data-i18n="guide_title">MEKANLARI</h1>
+        <h2 class="hero-subtitle2" data-i18n="guide_subtitle">KEŞFET</h2>
+        <p class="hero-text2" data-i18n="guide_text">Şehrin dört bir yanındaki en özel mekanları kategorilere göre
+          filtreleyin ve keşfedin.</p>
       </div>
     </div>
   </div>
@@ -69,12 +120,12 @@
   <div class="container ">
     <div class="row g-4">
       <div class="col-md-12 text-center mb-4">
-        <button class="btn filter-btn active" data-filter="all">TÜMÜ</button>
-        <button class="btn filter-btn" data-filter="camii">CAMİ</button>
-        <button class="btn filter-btn" data-filter="saray">SARAY</button>
-        <button class="btn filter-btn" data-filter="manzara">MANZARA</button>
-        <button class="btn filter-btn" data-filter="carsi">ÇARŞI</button>
-        <button class="btn filter-btn" data-filter="restaurant">RESTAURANT</button>
+        <button class="btn filter-btn active" data-filter="all" data-i18n="filter_all">TÜMÜ</button>
+        <button class="btn filter-btn" data-filter="camii" data-i18n="filter_mosque">CAMİ</button>
+        <button class="btn filter-btn" data-filter="saray" data-i18n="filter_palace">SARAY</button>
+        <button class="btn filter-btn" data-filter="manzara" data-i18n="filter_view">MANZARA</button>
+        <button class="btn filter-btn" data-filter="carsi" data-i18n="filter_bazaar">ÇARŞI</button>
+        <button class="btn filter-btn" data-filter="restaurant" data-i18n="filter_restaurant">RESTAURANT</button>
       </div>
     </div>
   </div>
@@ -117,10 +168,10 @@
     <div class="container">
       <div class="row g-4 mb-4">
         <div class="col-md-4">
-          <h5 class="mb-3">
+          <h5 class="mb-3" data-i18n="brand">
             <i class="bi bi-compass me-2"></i>İstanbul Kaşifi
           </h5>
-          <p class="text-secondary small fw-semibold">
+          <p class="text-secondary small fw-semibold" data-i18n="footer_desc">
             İstanbul'un gizli köşelerini, tarihi mekanlarını ve kültürel mirasını keşfetmek için rehberiniz.
           </p>
           <div class="d-flex gap-3 mt-3">
@@ -133,17 +184,20 @@
           </div>
         </div>
         <div class="col-md-2 offset-md-1">
-          <h6 class="text-uppercase text-warning fw-bold mb-3 small">Sayfalar</h6>
+          <h6 class="text-uppercase text-warning fw-bold mb-3 small" data-i18n="footer_pages">Sayfalar</h6>
           <ul class="list-unstyled">
-            <li class="mb-2"><a href="index.html" class="text-secondary text-decoration-none">Ana Sayfa</a></li>
-            <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Rehberler</a>
+            <li class="mb-2"><a href="index.html" class="text-secondary text-decoration-none" data-i18n="nav_home">Ana Sayfa</a>
             </li>
-            <li class="mb-2"><a href="iletisim.html" class="text-secondary text-decoration-none">İletişim</a>
+            <li class="mb-2"><a href="#" class="text-secondary text-decoration-none"
+                data-i18n="nav_guides">Rehberler</a>
+            </li>
+            <li class="mb-2"><a href="iletisim.html" class="text-secondary text-decoration-none"
+                data-i18n="nav_contact">İletişim</a>
             </li>
           </ul>
         </div>
         <div class="col-md-4 offset-md-1">
-          <h6 class="text-uppercase text-warning fw-bold small">İletişim</h6>
+          <h6 class="text-uppercase text-warning fw-bold small" data-i18n="nav_contact">İletişim</h6>
           <ul class="list-unstyled">
             <li class="d-flex my-3 align-items-end gap-2">
               <i class="bi bi-geo-alt-fill text-warning mt-1"></i>
@@ -162,7 +216,8 @@
       </div>
       <div class="text-center">
         <p class="text-secondary small">
-          © 2026 <span class="text-warning fw-semibold">İstanbul Kaşifi</span> — Tüm hakları saklıdır.
+          © 2026 <span class="text-warning fw-semibold" data-i18n="brand">İstanbul Kaşifi</span> — <span
+            data-i18n="footer_rights">Tüm hakları saklıdır.</span>
         </p>
       </div>
       <div class="d-flex align-items-center">
@@ -180,10 +235,11 @@
   </button>
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-  <script src="assets/js/tema.js"></script>
-  <script src="assets/js/rehberler.js"></script>
-  <script src="assets/js/jquery.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/tema.js"></script>
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/rehberler.js"></script>
+  <script src="locales/i18n.js"></script>
 </body>
 
 </html>
